@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MangaPetals</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-pink-500">MangaPetals</h1>
+    <a href="upload.html" class="text-sm text-white bg-pink-500 px-4 py-2 rounded">Upload Manga</a>
+  </header>  <!-- Main Content -->  <main class="p-6">
+    <h2 class="text-xl font-semibold mb-4">Latest Uploads</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="mangaList">
+      <!-- Manga thumbnails will be loaded here -->
+    </div>
+  </main>  <!-- Script -->  <script>
+    const mangaList = document.getElementById('mangaList');
+    const mangas = [
+      { title: "When The Petals Fall", image: "petals_cover.jpg", file: "petals_ch1.html" },
+      { title: "Silent Moon", image: "silentmoon_cover.jpg", file: "silentmoon_ch1.html" }
+    ];
+
+    mangas.forEach(manga => {
+      mangaList.innerHTML += `
+        <a href="${manga.file}" class="bg-white shadow rounded overflow-hidden">
+          <img src="${manga.image}" class="w-full h-48 object-cover" />
+          <div class="p-2 font-medium">${manga.title}</div>
+        </a>
+      `;
+    });
+  </script></body>
+</html>
